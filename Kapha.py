@@ -34,8 +34,9 @@ options = {
 total_score = 0
 
 # Display questions and collect responses
-for question in questions:
-    response = st.radio(question, list(options.keys()), key=question)
+for idx, question in enumerate(questions):
+    question_text = f"質問{idx + 1}　{question}"
+    response = st.radio(question_text, list(options.keys()), key=question_text)
     total_score += options[response]
 
 # Button to view the diagnosis
